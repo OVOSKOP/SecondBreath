@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name" translatable="false">Second Breath</string>
+    <string name="name">Иван Иванов</string>
+    <string name="title_action">Упражнение на Сегодня</string>
+    <string name="start_btn">Старт</string>
+    <string name="about_text">Среднее время тренеровки: 10 Мин</string>
+    <string name="name_exercise">Все групы мышц</string>
+    <string name="name_card_exercise">Бег</string>
+    <string name="exercise_image_description">Изображение упражения</string>
+    <string name="amount_card_exercise">5 минут</string>
+</resources>

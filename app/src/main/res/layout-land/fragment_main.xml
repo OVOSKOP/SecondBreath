@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            style="@style/Background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageButton
+                    android:id="@+id/open_nav"
+                    style="@style/MoreButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_more_button" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/name"
+                    android:textSize="18sp" />
+
+                <RelativeLayout
+                    android:layout_width="40dp"
+                    android:layout_height="40dp">
+
+                    <com.ovoskop.secondbreath.ui.views.CircleImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp">
+
+                    </com.ovoskop.secondbreath.ui.views.CircleImageView>
+
+                    <View
+                        android:id="@+id/is_online"
+                        style="@style/Online"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_alignParentTop="false"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginEnd="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginBottom="2dp" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+                <LinearLayout
+                    android:layout_width="120dp"
+                    android:layout_height="150dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Сопротивление дыханию"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <pl.pawelkleczkowski.customgauge.CustomGauge
+                            android:id="@+id/progress_breath"
+                            android:layout_width="95dp"
+                            android:layout_height="95dp"
+
+                            android:layout_marginBottom="10dp"
+
+                            app:gaugeEndValue="300"
+                            app:gaugePointEndColor="@color/radius_color_1"
+                            app:gaugePointStartColor="@color/radius_color_1"
+                            app:gaugeStartAngle="90"
+                            app:gaugeStartValue="0"
+                            app:gaugeStrokeCap="ROUND"
+                            app:gaugeStrokeColor="@color/radius_color_1_bg"
+                            app:gaugeStrokeWidth="8dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintBottom_toBottomOf="@+id/progress_breath"
+                            app:layout_constraintEnd_toEndOf="@+id/progress_breath"
+                            app:layout_constraintStart_toStartOf="@+id/progress_breath"
+                            app:layout_constraintTop_toTopOf="@+id/progress_breath">
+
+                            <TextView
+                                android:id="@+id/amount_breath"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/textView9"
+                                style="@style/Radius1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Pa"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="120dp"
+                    android:layout_height="150dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:gravity="center"
+                        android:text="CO2"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <pl.pawelkleczkowski.customgauge.CustomGauge
+                            android:id="@+id/progress_co"
+                            android:layout_width="95dp"
+
+                            android:layout_height="95dp"
+
+                            android:layout_marginBottom="10dp"
+                            app:gaugeEndValue="250"
+                            app:gaugePointEndColor="@color/radius_color_2"
+                            app:gaugePointStartColor="@color/radius_color_2"
+                            app:gaugeStartAngle="90"
+                            app:gaugeStartValue="0"
+                            app:gaugeStrokeCap="ROUND"
+                            app:gaugeStrokeColor="@color/radius_color_2_bg"
+                            app:gaugeStrokeWidth="8dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintBottom_toBottomOf="@id/progress_co"
+                            app:layout_constraintEnd_toEndOf="@id/progress_co"
+                            app:layout_constraintStart_toStartOf="@id/progress_co"
+                            app:layout_constraintTop_toTopOf="@id/progress_co">
+
+                            <TextView
+                                android:id="@+id/amount_co"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/textView10"
+                                style="@style/Radius2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="%"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="120dp"
+                    android:layout_height="150dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:gravity="center"
+                        android:text="O2"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <pl.pawelkleczkowski.customgauge.CustomGauge
+                            android:id="@+id/progress_o"
+                            android:layout_width="95dp"
+
+                            android:layout_height="95dp"
+
+                            android:layout_marginBottom="10dp"
+                            app:gaugeEndValue="120"
+                            app:gaugePointEndColor="@color/radius_color_3"
+                            app:gaugePointStartColor="@color/radius_color_3"
+                            app:gaugeStartAngle="90"
+                            app:gaugeStartValue="0"
+                            app:gaugeStrokeCap="ROUND"
+                            app:gaugeStrokeColor="@color/radius_color_3_bg"
+                            app:gaugeStrokeWidth="8dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintBottom_toBottomOf="@id/progress_o"
+                            app:layout_constraintEnd_toEndOf="@id/progress_o"
+                            app:layout_constraintStart_toStartOf="@id/progress_o"
+                            app:layout_constraintTop_toTopOf="@id/progress_o">
+
+                            <TextView
+                                android:id="@+id/amount_o"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/textView11"
+                                style="@style/Radius3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="%"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout4"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="39dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+                <LinearLayout
+                    android:layout_width="120dp"
+                    android:layout_height="150dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:gravity="center"
+                        android:text="Температура"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <pl.pawelkleczkowski.customgauge.CustomGauge
+                            android:id="@+id/progress_temp"
+                            android:layout_width="95dp"
+
+                            android:layout_height="95dp"
+
+                            android:layout_marginBottom="10dp"
+                            app:gaugeEndValue="450"
+                            app:gaugePointEndColor="@color/radius_color_4"
+                            app:gaugePointStartColor="@color/radius_color_4"
+                            app:gaugeStartAngle="90"
+                            app:gaugeStartValue="200"
+                            app:gaugeStrokeCap="ROUND"
+                            app:gaugeStrokeColor="@color/radius_color_4_bg"
+                            app:gaugeStrokeWidth="8dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintBottom_toBottomOf="@id/progress_temp"
+                            app:layout_constraintEnd_toEndOf="@id/progress_temp"
+                            app:layout_constraintStart_toStartOf="@id/progress_temp"
+                            app:layout_constraintTop_toTopOf="@id/progress_temp">
+
+                            <TextView
+                                android:id="@+id/amount_temp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/textView12"
+                                style="@style/Radius4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="℃"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="120dp"
+                    android:layout_height="150dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:gravity="center"
+                        android:text="Пульс"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <pl.pawelkleczkowski.customgauge.CustomGauge
+                            android:id="@+id/progress_pulse"
+                            android:layout_width="95dp"
+
+                            android:layout_height="95dp"
+
+                            android:layout_marginBottom="10dp"
+                            app:gaugeEndValue="150"
+                            app:gaugePointEndColor="@color/radius_color_5"
+                            app:gaugePointStartColor="@color/radius_color_5"
+                            app:gaugeStartAngle="90"
+                            app:gaugeStartValue="0"
+                            app:gaugeStrokeCap="ROUND"
+                            app:gaugeStrokeColor="@color/radius_color_5_bg"
+                            app:gaugeStrokeWidth="8dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintBottom_toBottomOf="@id/progress_pulse"
+                            app:layout_constraintEnd_toEndOf="@id/progress_pulse"
+                            app:layout_constraintStart_toStartOf="@id/progress_pulse"
+                            app:layout_constraintTop_toTopOf="@id/progress_pulse">
+
+                            <TextView
+                                android:id="@+id/amount_pulse"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/textView13"
+                                style="@style/Radius5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="bpm"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/imageView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="22dp"
+                            app:layout_constraintEnd_toEndOf="@+id/progress_pulse"
+                            app:layout_constraintStart_toStartOf="@+id/progress_pulse"
+                            app:layout_constraintTop_toTopOf="@+id/progress_pulse"
+                            app:srcCompat="@drawable/ic_battery" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            style="@style/SecondBackground"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <include
+                android:id="@+id/start_view"
+                layout="@layout/content_exercise_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <include
+                android:id="@+id/stop_view"
+                layout="@layout/content_exercise_start"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        style="@style/NavViewBackground"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="false"
+        android:maxWidth="240dp"
+        android:windowTranslucentStatus="false"
+        app:insetForeground="@null">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include
+                layout="@layout/nav_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:id="@+id/divider"
+                style="@style/Dividers"
+                android:layout_width="match_parent"
+                android:layout_height="2dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:orientation="vertical">
+
+                <com.ovoskop.secondbreath.ui.views.MenuItemView
+                    android:id="@+id/setting_menu"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <com.ovoskop.secondbreath.ui.views.MenuItemView
+                    android:id="@+id/mode_menu"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:image="@drawable/ic_mode"
+                    app:title="Ночная тема" />
+
+                <com.ovoskop.secondbreath.ui.views.MenuItemView
+                    android:id="@+id/profile_menu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:image="@drawable/ic_profile"
+                    app:title="Профиль" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider2"
+                style="@style/Dividers"
+                android:layout_width="match_parent"
+                android:layout_height="2dp" />
+
+            <com.ovoskop.secondbreath.ui.views.MenuItemView
+                android:id="@+id/quit_menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:image="@drawable/ic_quit"
+                app:title="Выход" />
+        </LinearLayout>
+
+    </com.google.android.material.navigation.NavigationView>
+</androidx.drawerlayout.widget.DrawerLayout>

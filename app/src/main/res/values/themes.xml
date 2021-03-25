@@ -1,0 +1,153 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.SecondBreath" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:fontFamily">@font/manrope</item>
+        <item name="android:textColor">@color/black</item>
+
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:fitsSystemWindows">false</item>
+
+        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/card_bg</item>
+    </style>
+
+    <style name="Background">
+        <item name="android:background">@color/background</item>
+    </style>
+
+    <style name="NavViewBackground">
+        <item name="android:background">@color/background</item>
+    </style>
+
+    <style name="SecondBackground">
+        <item name="android:background">@color/second_background</item>
+    </style>
+
+    <style name="TextColor">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Button">
+        <item name="backgroundTint">@null</item>
+        <item name="android:insetBottom">12dp</item>
+        <item name="android:background">@drawable/ic_background_card</item>
+        <item name="android:textColor">@color/sub_text_color</item>
+        <item name="android:textSize">18sp</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="ButtonAlert">
+        <item name="backgroundTint">@null</item>
+        <item name="android:insetBottom">12dp</item>
+        <item name="android:background">@drawable/ic_alert_button_bg</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="LogoTimerAlert">
+        <item name="android:tint">@color/logo_timer_dialog</item>
+        <item name="android:textColor">@color/logo_timer_dialog</item>
+    </style>
+
+    <style name="Card">
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:background">@drawable/ic_background_card</item>
+    </style>
+
+    <style name="AlertDialog">
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:background">@drawable/ic_background_card</item>
+    </style>
+
+    <style name="CardTop">
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:background">@drawable/ic_background_card_top</item>
+    </style>
+
+    <style name="CardLeft">
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:background">@drawable/ic_background_card_right</item>
+    </style>
+
+    <style name="CardText">
+        <item name="android:textColor">@color/sub_text_color</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="MoreButton">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:tint">@color/second_background_night</item>
+    </style>
+
+    <style name="ExerciseImage">
+        <item name="android:tint">@color/second_background</item>
+    </style>
+
+    <style name="LogoImage">
+        <item name="android:tint">@color/logo_day</item>
+    </style>
+    <style name="LogoText">
+        <item name="android:textColor">@color/logo_day</item>
+    </style>
+
+    <style name="Dividers">
+        <item name="android:background">@color/divider</item>
+    </style>
+
+    <style name="MenuItem">
+        <item name="android:tint">@color/card_bg_night</item>
+        <item name="android:textColor">@color/card_bg_night</item>
+    </style>
+
+    <style name="MenuItem.Theme">
+        <item name="android:background">@drawable/ic_menu_click_bg</item>
+    </style>
+
+    <style name="Online">
+        <item name="android:background">@drawable/ic_online</item>
+    </style>
+
+    <style name="Radius1">
+        <item name="android:textColor">#a8a8a8</item>
+    </style>
+
+    <style name="Radius2">
+        <item name="android:textColor">#505050</item>
+    </style>
+
+    <style name="Radius3">
+        <item name="android:textColor">#505050</item>
+    </style>
+
+    <style name="Radius4">
+        <item name="android:textColor">#7c7c7c</item>
+    </style>
+
+    <style name="Radius5">
+        <item name="android:textColor">#a8a8a8</item>
+    </style>
+
+    <style name="MillisecondWhite">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="MillisecondBlack">
+        <item name="android:textColor">@color/black</item>
+    </style>
+</resources>
