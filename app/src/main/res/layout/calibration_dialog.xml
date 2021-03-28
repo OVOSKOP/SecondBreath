@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/NavViewBackground"
+    android:layout_width="430dp"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="430dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingLeft="32dp"
+            android:paddingTop="20dp"
+            android:paddingRight="32dp"
+            android:paddingBottom="16dp">
+
+            <ImageView
+                android:id="@+id/imageView"
+                style="@style/LogoImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_logo" />
+
+            <TextView
+                android:id="@+id/textView3"
+                style="@style/LogoText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/raleway"
+                android:text="SECOND BREATH"
+                android:textAllCaps="true" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider3"
+            style="@style/Dividers"
+            android:layout_width="match_parent"
+            android:layout_height="2dp" />
+
+        <com.ovoskop.secondbreath.ui.views.MenuItemView
+            android:id="@+id/choose_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            app:title="Тип термопары" />
+
+        <View
+            android:id="@+id/divider4"
+            style="@style/Dividers"
+            android:layout_width="match_parent"
+            android:layout_height="2dp" />
+
+        <com.ovoskop.secondbreath.ui.views.MenuItemView
+            android:id="@+id/device_caliber_1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="12dp"
+            app:image="@drawable/ic_device_1"
+            app:title="Калибровка датчика температуры" />
+
+        <com.ovoskop.secondbreath.ui.views.MenuItemView
+            android:id="@+id/device_caliber_2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:image="@drawable/ic_device_2"
+            app:title="Калибровка датчика давления" />
+
+        <com.ovoskop.secondbreath.ui.views.MenuItemView
+            android:id="@+id/device_caliber_3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:image="@drawable/ic_device_3"
+            app:title="Калибровка датчика СО2" />
+
+        <com.ovoskop.secondbreath.ui.views.MenuItemView
+            android:id="@+id/device_caliber_4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="12dp"
+            app:image="@drawable/ic_device_4"
+            app:title="Калибровка датчика О2" />
+
+    </LinearLayout>
+</ScrollView>

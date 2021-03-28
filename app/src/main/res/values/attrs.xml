@@ -8,4 +8,9 @@
     <declare-styleable name="CircleImageView">
         <attr name="imageView" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="CheckedButtonView">
+        <attr name="titleBtn" format="string" />
+        <attr name="checked" format="boolean" />
+    </declare-styleable>
 </resources>

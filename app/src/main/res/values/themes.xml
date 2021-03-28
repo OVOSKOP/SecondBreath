@@ -25,6 +25,11 @@
         <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/card_bg</item>
     </style>
 
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/anim_dialog_slide</item>
+        <item name="android:windowExitAnimation">@anim/anim_dialog_slide_off</item>
+    </style>
+
     <style name="Background">
         <item name="android:background">@color/background</item>
     </style>
@@ -35,6 +40,10 @@
 
     <style name="SecondBackground">
         <item name="android:background">@color/second_background</item>
+    </style>
+
+    <style name="SecondBackgroundDialog">
+        <item name="android:background">@color/second_bg_day_dialog</item>
     </style>
 
     <style name="TextColor">
@@ -59,6 +68,15 @@
         <item name="textAllCaps">false</item>
     </style>
 
+    <style name="ButtonFullDialog">
+        <item name="backgroundTint">@null</item>
+        <item name="android:insetBottom">12dp</item>
+        <item name="android:background">@drawable/ic_alert_button_bg</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
     <style name="LogoTimerAlert">
         <item name="android:tint">@color/logo_timer_dialog</item>
         <item name="android:textColor">@color/logo_timer_dialog</item>
@@ -71,7 +89,7 @@
 
     <style name="AlertDialog">
         <item name="android:paddingBottom">6dp</item>
-        <item name="android:background">@drawable/ic_background_card</item>
+        <item name="android:background">@drawable/ic_alert_background</item>
     </style>
 
     <style name="CardTop">
@@ -149,5 +167,45 @@
 
     <style name="MillisecondBlack">
         <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="ButtonDialog">
+        <item name="backgroundTint">@null</item>
+        <item name="android:background">@drawable/ic_dialog_button</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:layout_height">58dp</item>
+    </style>
+
+    <style name="CardBlue">
+        <item name="cardBackgroundColor">@color/bg_list_blue</item>
+    </style>
+    <style name="TextBlue">
+        <item name="android:textColor">@color/button_bg_night</item>
+    </style>
+    <style name="SubTextBlue">
+        <item name="android:textColor">#A6A6A6</item>
+    </style>
+
+    <style name="CheckedButton">
+        <item name="android:background">@drawable/ic_background_btn_day</item>
+    </style>
+
+    <style name="PlainText">
+        <item name="android:paddingBottom">6dp</item>
+        <item name="android:background">@drawable/ic_plain_bg_day</item>
+        <item name="android:textColor">#09090D</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="BackgroundBottom">
+        <item name="android:paddingTop">6dp</item>
+        <item name="android:background">@drawable/ic_bg_bottom_btn</item>
+    </style>
+
+    <style name="BottomButton">
+        <item name="android:textColor">#DBDBDB</item>
     </style>
 </resources>

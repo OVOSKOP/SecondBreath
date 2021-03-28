@@ -58,11 +58,20 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp">
 
-                    <com.ovoskop.secondbreath.ui.views.CircleImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp">
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:cardBackgroundColor="@android:color/transparent"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="0dp" >
 
-                    </com.ovoskop.secondbreath.ui.views.CircleImageView>
+                        <ImageView
+                            android:id="@+id/imageView6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/man" />
+                    </androidx.cardview.widget.CardView>
 
                     <View
                         android:id="@+id/is_online"
@@ -106,6 +115,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
+                        android:scrollHorizontally="false"
                         android:text="Сопротивление дыханию"
                         android:textSize="12sp"
                         android:textStyle="bold" />
@@ -162,7 +172,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="120dp"
+                    android:layout_width="115dp"
                     android:layout_height="150dp"
                     android:gravity="center"
                     android:orientation="vertical">
@@ -227,7 +237,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="120dp"
+                    android:layout_width="115dp"
                     android:layout_height="150dp"
                     android:gravity="center"
                     android:orientation="vertical">
@@ -557,4 +567,5 @@
         </LinearLayout>
 
     </com.google.android.material.navigation.NavigationView>
+
 </androidx.drawerlayout.widget.DrawerLayout>

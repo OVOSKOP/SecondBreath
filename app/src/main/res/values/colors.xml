@@ -27,6 +27,9 @@
     <color name="background_night">#171A23</color>
     <color name="second_background_night">#242635</color>
     <color name="card_bg_night">#3E404B</color>
+    <color name="second_bg_day_dialog">#F8F8F8</color>
+
+    <color name="card_bg_day">#C8C8C8</color>
 
     <color name="radius_color_1">#97ADE7</color>
     <color name="radius_color_1_bg">#4097ADE7</color>
@@ -41,4 +44,10 @@
 
     <color name="radius_error">#FF5959</color>
     <color name="radius_error_bg">#40FF5959</color>
+
+    <color name="bg_list_blue">#E2E3E9</color>
+    <color name="bg_list_blue_night">#434557</color>
+    <color name="bg_list_blue_second_night">#3E4053</color>
+    
+    <color name="button_bg_night">#4D5064</color>
 </resources>

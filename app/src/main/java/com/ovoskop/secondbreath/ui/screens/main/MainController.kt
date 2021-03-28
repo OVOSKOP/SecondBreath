@@ -15,14 +15,19 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.ovoskop.secondbreath.MainActivity
 import com.ovoskop.secondbreath.R
 import com.ovoskop.secondbreath.ui.adapters.ExerciseAdapter
 import com.ovoskop.secondbreath.ui.decorators.ExerciseListDecorator
+import com.ovoskop.secondbreath.ui.dialogs.CalibrationDialog
+import com.ovoskop.secondbreath.ui.dialogs.StopDialog
+import com.ovoskop.secondbreath.ui.dialogs.TimerDialog
 import com.ovoskop.secondbreath.ui.views.MenuItemView
 import com.ovoskop.secondbreath.utils.App
 import com.ovoskop.secondbreath.utils.Mode
 import com.ovoskop.secondbreath.utils.classes.Exercise
 import com.ovoskop.secondbreath.utils.dpToPx
+import com.ovoskop.secondbreath.utils.hideSystemUI
 import pl.pawelkleczkowski.customgauge.CustomGauge
 
 class MainController(private val fragment: Fragment, view: View) {
@@ -65,7 +70,7 @@ class MainController(private val fragment: Fragment, view: View) {
     private val shared = fragment.context?.getSharedPreferences(
             "mode", Context.MODE_PRIVATE)
 
-    private var alertDialog: AlertDialog? = null
+    private var animator: ValueAnimator? = null
 
     private val demoList: List<Exercise> = listOf(
             Exercise(
@@ -104,35 +109,18 @@ class MainController(private val fragment: Fragment, view: View) {
         }
 
         startBtn.setOnClickListener {
-            val viewAlert = LinearLayout.inflate(fragment.requireContext(), R.layout.timer_dialog, null)
-            val counter: TextView = viewAlert.findViewById(R.id.timer_counter)
-
-            showTimer(viewAlert)
-
-            val timer = object: CountDownTimer(5200, 1000) {
-                override fun onTick(millisUntilFinished: Long) {
-                    counter.text = (millisUntilFinished / 1000).toString()
-                }
-
-                override fun onFinish() {
-                    alertDialog?.dismiss()
-
-                    startView.visibility = View.GONE
-                    stopView.visibility = View.VISIBLE
-                }
+            val dialog = TimerDialog()
+            dialog.setOnDismissListener {
+                startView.visibility = View.GONE
+                stopView.visibility = View.VISIBLE
             }
-            timer.start()
+
+            dialog.show(fragment.childFragmentManager, "timer")
         }
 
         stopBtn.setOnClickListener {
-            val viewAlert = LinearLayout.inflate(fragment.requireContext(), R.layout.alert_dialog, null)
-
-            val positive: Button = viewAlert.findViewById(R.id.positive_btn)
-            val negative: Button = viewAlert.findViewById(R.id.negative_btn)
-
-            positive.setOnClickListener {
-                alertDialog?.dismiss()
-
+            val dialog = StopDialog()
+            dialog.setOnDismissListener {
                 startView.visibility = View.VISIBLE
                 stopView.visibility = View.GONE
 
@@ -146,11 +134,7 @@ class MainController(private val fragment: Fragment, view: View) {
                 reloadListExercise(demoList)
             }
 
-            negative.setOnClickListener {
-                alertDialog?.dismiss()
-            }
-
-            showAlert(viewAlert)
+            dialog.show(fragment.childFragmentManager, "stop")
         }
 
         reloadListExercise(demoList)
@@ -189,7 +173,10 @@ class MainController(private val fragment: Fragment, view: View) {
 
 
         settingMenuBtn.setOnItemClickListener {
+            drawerLayout.closeDrawer(Gravity.LEFT)
 
+            val dialog = CalibrationDialog()
+            dialog.show(fragment.childFragmentManager, "calibration")
         }
 
 
@@ -206,9 +193,9 @@ class MainController(private val fragment: Fragment, view: View) {
 
     private fun startAnimateProgressBar(progressBar: CustomGauge, textView: TextView, normalValue: Int, startValue: Int, endValue: Int, isPoint: Boolean = false, isMulti: Boolean = false) {
 
-        val animator: ValueAnimator = ValueAnimator.ofInt(startValue, endValue)
-        animator.duration = 2000
-        animator.addUpdateListener {
+        animator = ValueAnimator.ofInt(startValue, endValue)
+        animator?.duration = 2000
+        animator?.addUpdateListener {
             progressBar.value = it.animatedValue as Int
             if (isPoint) {
                 textView.text = (((it.animatedValue as Int).toFloat()) / 10).toString()
@@ -221,61 +208,19 @@ class MainController(private val fragment: Fragment, view: View) {
             }
 
             if (it.animatedValue as Int > normalValue) {
-                progressBar.strokeColor = ContextCompat.getColor(fragment.requireContext(), R.color.radius_error_bg)
-                progressBar.pointStartColor = ContextCompat.getColor(fragment.requireContext(), R.color.radius_error)
-                progressBar.pointEndColor = ContextCompat.getColor(fragment.requireContext(), R.color.radius_error)
+                if (fragment.isAdded) {
+                    progressBar.strokeColor = ContextCompat.getColor(fragment.requireContext(), R.color.radius_error_bg)
+                    progressBar.pointStartColor = ContextCompat.getColor(fragment.requireContext(), R.color.radius_error)
+                    progressBar.pointEndColor = ContextCompat.getColor(fragment.requireContext(), R.color.radius_error)
+                }
             }
         }
-        animator.start()
+        animator?.start()
 
     }
 
-    private fun showAlert(view: View) {
-
-        alertDialog = AlertDialog.Builder(fragment.requireContext())
-                .setView(view)
-                .create()
-        alertDialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
-        alertDialog?.show()
-
-        hideSystemUI(alertDialog?.window)
-        alertDialog?.window?.setLayout(dpToPx(320f, fragment.requireContext()).toInt(), WindowManager.LayoutParams.WRAP_CONTENT)
-
+    fun destroy() {
+        animator?.removeAllUpdateListeners()
+        animator?.cancel()
     }
-
-    private fun showTimer(view: View) {
-
-        alertDialog = AlertDialog.Builder(fragment.requireContext())
-                .setView(view)
-                .create()
-        alertDialog?.setCanceledOnTouchOutside(false)
-        alertDialog?.window?.setBackgroundDrawableResource(android.R.color.transparent)
-        alertDialog?.show()
-
-        hideSystemUI(alertDialog?.window)
-        alertDialog?.window?.setLayout(dpToPx(320f, fragment.requireContext()).toInt(), WindowManager.LayoutParams.WRAP_CONTENT)
-
-    }
-
-    private fun hideSystemUI(window: Window?) {
-        if (Build.VERSION.SDK_INT >= 30) {
-            window?.insetsController?.apply {
-                hide(WindowInsets.Type.statusBars() or WindowInsets.Type.navigationBars())
-            }
-        } else {
-            // Enables regular immersive mode.
-            // For "lean back" mode, remove SYSTEM_UI_FLAG_IMMERSIVE.
-            // Or for "sticky immersive," replace it with SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-            window?.decorView?.systemUiVisibility = (View.SYSTEM_UI_FLAG_IMMERSIVE
-                    // Set the content to appear under the system bars so that the
-                    // content doesn't resize when the system bars hide and show.
-                    or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                    or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                    or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                    // Hide the nav bar and status bar
-                    or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                    or View.SYSTEM_UI_FLAG_FULLSCREEN)
-        }
-    }
-
 }

@@ -16,8 +16,12 @@ class App : Application() {
             }
         }
 
+    var showed = false
+
     override fun onCreate() {
         super.onCreate()
+
+        println("CREATED")
 
         val shared = getSharedPreferences(
             "mode", Context.MODE_PRIVATE)

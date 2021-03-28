@@ -9,11 +9,19 @@ import com.ovoskop.secondbreath.R
 
 class MainFragment : Fragment() {
 
+    private lateinit var controller: MainController
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_main, container, false)
-        MainController(this, root)
+        controller = MainController(this, root)
 
         return root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        controller.destroy()
     }
 
 }
